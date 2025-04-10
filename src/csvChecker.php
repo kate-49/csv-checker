@@ -24,16 +24,20 @@ final class CsvChecker
         foreach($this->fileNames AS $filename) {
             var_dump("filename");
             var_dump($filename);
-            $fileObject = new CV($filename);
+            $fileObject = new CV();
+            $fileObject->setFilename($filename);
             $noteablePhases = [];
 
             $file = $this->dir . '/' . $filename;
             $fileAsArray = explode("\n", file_get_contents($file));
 
             foreach($fileAsArray as $Row) {
-                $Row = str_getcsv($Row, ";");
-                if (!empty($Row[0])) {
-                    $noteablePhases[] = $Row[0];
+                $rowAsSentence = explode(".", $Row);
+                foreach($rowAsSentence as $sentence) {
+                    $nr = str_getcsv($sentence, ".");
+                    if (!empty($nr[0])) {
+                        $noteablePhases[] = $nr[0];
+                    }
                 }
             }
 
