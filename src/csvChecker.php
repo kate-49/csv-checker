@@ -22,8 +22,6 @@ final class CsvChecker
     public function runThroughAllCvsToCollectData(): array
     {
         foreach($this->fileNames AS $filename) {
-            var_dump("filename");
-            var_dump($filename);
             $fileObject = new CV();
             $fileObject->setFilename($filename);
             $noteablePhases = [];
@@ -60,7 +58,22 @@ final class CsvChecker
             $stringThatIsFound[$cv->getFilename()] = $subArray;
         }
 
-        var_dump($stringThatIsFound);
+        return $stringThatIsFound;
+    }
+
+    public function identifyDuplicatePhrases(string $phaseToFind): array
+    {
+        $stringThatIsFound = [];
+        foreach($this->cvCollection AS $cv) {
+            $subArray = [];
+            foreach($cv->getContent() AS $content) {
+                if (str_contains($content, $phaseToFind)) {
+                    $subArray[] = $content;
+                }
+            };
+            $stringThatIsFound[$cv->getFilename()] = $subArray;
+        }
+
         return $stringThatIsFound;
     }
 
