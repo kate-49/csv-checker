@@ -51,11 +51,13 @@ final class CsvChecker
     {
         $stringThatIsFound = [];
         foreach($this->cvCollection AS $cv) {
+            $subArray = [];
             foreach($cv->getContent() AS $content) {
                 if (str_contains($content, $phaseToFind)) {
-                    $stringThatIsFound[$cv->getFilename()] = $content;
+                    $subArray[] = $content;
                 }
             };
+            $stringThatIsFound[$cv->getFilename()] = $subArray;
         }
 
         var_dump($stringThatIsFound);
