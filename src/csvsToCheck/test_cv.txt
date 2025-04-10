@@ -1,13 +1,5 @@
 ﻿Kate Smith
-Email: kateesmith4994@gmail.com /  Phone: 07510567901 / Github: Kate-49
-
-
-Employment History:
-Developer: 
-May 23 - Present. Ministry of Justice - Digital and Technology.
-	
-
-	
+Email: testemail@gmail.com /  Phone: 123456789 / Github: Kate-9952
 
 	Skills:
 	Background:
@@ -34,10 +26,6 @@ Responsibilities:
    * Pair programming/ coaching with Junior members of the team to help them learn the fundamentals of coding. Helping identify areas to help them develop further (e.g. supportive readings to consolidate learning or exercises for them to continue in L&D if desired). 
    * Pair programming / collaborating with other developers of varying levels to share skills and knowledge around certain areas of the codebase (knowledge sharing)
 
-
-	
-
-	
 
 	Front end:
    * Go Templates 
@@ -91,47 +79,3 @@ Soft skills:
    * Gathering user requirements
    * Refining work to meet user specifications
    * Discussing technical implementation with non technical staff
-	
-
-Junior Developer: 
-April 21 - May 23. Ministry of Justice - Digital and Technology.
-	
-
-	Notable work:
-   * Creating a new microservice that integrated with an existing legacy system and database. Designing for accessibility with GDS components, user centric design and Pa11y accessibility testing. This microservices was able to be deployed/ managed separately to the rest of the service but communicated with it. 
-   * Create a new search endpoint to only return one type of person from our database. This involved amending an elastic search microservice that was built in house and creating new database queries and APIs. Improved user experience of the service and time taken to complete their tasks.
-   * Creating a reusable script for regularly repeated business database updated requests, saving developers time and allowing them to query the github version history for previous queries.
-   * Generating new reports for users with complex SQL queries.
-   * Rewriting service and microservice UI tests into Cypress 
-
-
-
-
-Responsibilities:
-   * Fixing bugs in production, investigating and fixing service faults
-   * Coaching apprentice developers
-
-
-	
-
-	
-
-Apprentice Developer: 
-March 20 - April 21. Ministry of Justice - Digital and Technology.
-	
-
-	
-
-	
-
-	Notable work:
-   * Improving form field validation to ensure no user entered data was directly passed into the database to prevent SQL injection attacks. 
-   * Rewriting service UI to allow translation to Welsh language
-   * Creating custom error messages for pages to improve user experience
-   * Creating new permissions to delete users
-
-
-	Education: 
-   * Makers Academy Level 4 Software Developer Apprenticeship - Completed Aug 21
-   * AWS Cloud Practitioner Certification - Completed May 22
-   * History Degree at University of Nottingham - 2:1 Completed July 16

@@ -1,6 +1,5 @@
 <?php declare(strict_types=1);
 
-
 final class CsvChecker
 {
     /* @var []string */
@@ -9,32 +8,81 @@ final class CsvChecker
 
     public function __construct()
     {
+        $this->fileNames = [];
         $this->dir = './src/csvsToCheck';
         $fileNames = scandir($this->dir);
-        if ($fileNames) {
-            $this->fileNames = $fileNames;
+        foreach($fileNames as $fileName) {
+            if (strlen($fileName) > 3) {
+                $this->fileNames[] = $fileName;
+            }
         }
-        $this->noteablePhases = [];
+        $this->cvCollection = [];
     }
 
     public function runThroughAllCvsToCollectData(): array
     {
         foreach($this->fileNames AS $filename) {
+            var_dump("filename");
+            var_dump($filename);
+            $fileObject = new CV($filename);
+            $noteablePhases = [];
 
             $file = $this->dir . '/' . $filename;
-            $file2 = file_get_contents($file);
-            $fileAsArray = explode("\n", $file2);
+            $fileAsArray = explode("\n", file_get_contents($file));
+
             foreach($fileAsArray as $Row) {
                 $Row = str_getcsv($Row, ";");
                 if (!empty($Row[0])) {
-                    var_dump("row");
-                    var_dump($Row);
-                    $this->noteablePhases[] = $Row[0];
+                    $noteablePhases[] = $Row[0];
                 }
             }
+
+            $fileObject->setContent($noteablePhases);
+            $this->cvCollection[] = $fileObject;
         };
-        var_dump($this->noteablePhases);
-        return $this->noteablePhases;
+        return $this->cvCollection;
     }
 
+    public function searchForPhase(string $phaseToFind): array
+    {
+        $stringThatIsFound = [];
+        foreach($this->cvCollection AS $cv) {
+            foreach($cv->getContent() AS $content) {
+                if (str_contains($content, $phaseToFind)) {
+                    $stringThatIsFound[$cv->getFilename()] = $content;
+                }
+            };
+        }
+
+        var_dump($stringThatIsFound);
+        return $stringThatIsFound;
+    }
+
+}
+
+class CV {
+    public $fileName;
+    public array $content;
+
+    function setFilename($filename) {
+        $this->fileName = $filename;
+    }
+
+    function newCV($filename, $content) {
+        $this->fileName = $filename;
+        $this->content = $content;
+        return $this;
+    }
+
+    function setContent(array $content) {
+        $this->content = $content;
+    }
+
+    function getContent() {
+        return $this->content;
+    }
+
+    function getFilename() {
+        return $this->fileName;
+    }
 }
