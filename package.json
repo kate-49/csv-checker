@@ -1,0 +1,24 @@
+{
+  "name": "phpunittemplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/csvChecker.php",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kate-49/phpunitTemplate.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kate-49/csvChecker/issues"
+  },
+  "homepage": "https://github.com/kate-49/csvChecker#readme",
+  "scripts" : {
+    "test" : "./vendor/bin/phpunit test/csvCheckerTest.php"
+  },
+  "autoload": {
+    "classmap": [
+      "src/"
+    ]
+  }
+}
