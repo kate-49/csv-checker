@@ -1,1 +1,1 @@
-{"version":1,"defects":{"CsvCheckerTest::testRunThroughAllCvsToCollectData":7,"CsvCheckerTest::testSearchForPhase":7},"times":{"CsvCheckerTest::testAdd":0.133,"CsvCheckerTest::testRunThroughAllCvsToCollectData":0.017,"CsvCheckerTest::testSearchForPhase":0.03}}
+{"version":1,"defects":{"CsvCheckerTest::testRunThroughAllCvsToCollectData":7,"CsvCheckerTest::testSearchForPhase":7},"times":{"CsvCheckerTest::testAdd":0.133,"CsvCheckerTest::testRunThroughAllCvsToCollectData":0.336,"CsvCheckerTest::testSearchForPhase":0.028,"CsvCheckerTest::testSearchForLongerPhase":0}}

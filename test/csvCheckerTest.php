@@ -106,4 +106,21 @@ final class CsvCheckerTest extends TestCase
             $result
         );
     }
+
+    public function testSearchForLongerPhase()
+    {
+        $this->csvChecker->runThroughAllCvsToCollectData();
+        $result = $this->csvChecker->searchForPhase("Generating a scheduled multipage spreadsheet");
+        $this->assertEquals(
+            [
+                'Another_cv.txt' => [
+                    '* Generating a scheduled multipage spreadsheet for users in PHP and sending this to relevant parties using the Notify API',
+                ],
+                'test_cv.txt' => [
+                    '* Generating a scheduled multipage spreadsheet for users in PHP and sending this to relevant parties using the Notify API',
+                ],
+            ],
+            $result
+        );
+    }
 }
