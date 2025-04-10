@@ -5,22 +5,23 @@ use PHPUnit\Framework\TestCase;
 require './src/csvChecker.php';
 final class CsvCheckerTest extends TestCase
 {
-    private $calculator;
+    private $csvChecker;
 
     protected function setUp(): void
     {
-        $this->calculator = new CsvChecker();
+        $this->csvChecker = new CsvChecker();
     }
 
     protected function tearDown(): void
     {
-        $this->calculator = NULL;
+        $this->csvChecker = NULL;
     }
 
-    public function testAdd()
+    public function testRunThroughAllCvsToCollectData()
     {
-        $result = $this->calculator->add(1, 2);
-        $this->assertEquals(3, $result);
+        $result = $this->csvChecker->runThroughAllCvsToCollectData();
+        var_dump($result[0]);
+        $this->assertEquals(['Kate Smith', '48 Parkhill Road'], $result);
     }
 
 }
